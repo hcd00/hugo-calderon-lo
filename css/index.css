@@ -89,3 +89,67 @@ nav {
     flex: 1;
     text-align: center;
 }
+/* 
+Tabley
+*/
+@media (max-width: 768px) {
+    #header-container {
+        flex-direction: column; /* Stack links vertically */
+    }
+
+    nav {
+        padding: 20px;
+    }
+
+    ul {
+        flex-direction: column; /* Stack list items vertically */
+    }
+
+    li {
+        width: 100%;
+        max-width: none;
+    }
+
+    section {
+        padding: 2em;
+        margin: 0;
+        height: auto; 
+    }
+}
+
+/* Mobile */
+@media (max-width: 390px) {
+    #header-container {
+        flex-direction: column; /* Stack links vertically */
+        gap: 10px;
+    }
+
+    nav {
+        padding: 15px;
+    }
+
+    ul {
+        flex-direction: column; /* Stack list items vertically */
+    }
+
+    li {
+        width: 100%;
+        max-width: none; 
+        padding: 1em;
+    }
+
+    section {
+        padding: 1.5em;
+        margin: 0.5em 0; 
+        height: auto;
+    }
+
+    #Connect {
+        height: auto;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
