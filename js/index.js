@@ -54,6 +54,27 @@ messageForm.addEventListener("submit", function (e) {
     newMessage.appendChild(removeButton);
     messageSection.append(newMessage);
     messageForm.reset();
-
 })
+
+const githubUrl = 'https://api.github.com/users/hcd00/repos';
+fetch(githubUrl)
+    .then(response => {
+        return response.json();
+    })
+    .then(response => {
+        let repositories = response;
+        console.log(repositories);
+        let projectSection = document.getElementById('Projects');
+        //Create a variable named projectList; using "DOM Selection" query the projectSection (instead of the entire document)
+        let projectList = projectSection.querySelector('ul');
+        for (let i = 0; i < repositories.length; i++) {
+            let project = document.createElement('li');
+            project.innerText = repositories[i].name + '\n'
+            + 'Created: ' + repositories[i].created_at + ' ' + 'Description: ' + repositories[i].description + ' Forks: ' + repositories[i].forks;
+            projectList.appendChild(project);
+        }
+    })
+    .catch(error => {
+        console.error("There were an error in fetching your request.", error);
+    })
 
