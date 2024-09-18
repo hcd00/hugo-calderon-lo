@@ -69,7 +69,8 @@ fetch(githubUrl)
         let projectList = projectSection.querySelector('ul');
         for (let i = 0; i < repositories.length; i++) {
             let project = document.createElement('li');
-            project.innerText = repositories[i].name;
+            project.innerText = repositories[i].name + '\n'
+            + 'Created: ' + repositories[i].created_at + ' ' + 'Description: ' + repositories[i].description + ' Forks: ' + repositories[i].forks;
             projectList.appendChild(project);
         }
     })
