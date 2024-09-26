@@ -22,19 +22,15 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 
+//Form query
 let messageForm = document.getElementsByName("leave_message")[0];
-console.log(messageForm);
 
 messageForm.addEventListener("submit", function (e) {
     e.preventDefault();
-
+    //Data to collect
     const usersName = e.target.usersName.value;
     const usersEmail = e.target.usersEmail.value;
     const usersMessage = e.target.usersMessage.value;
-
-    console.log("Name:", usersName);
-    console.log("Email:", usersEmail);
-    console.log("Message:", usersMessage);
 
     let messageSection = document.getElementById('messages');
     let newMessage = document.createElement("li");
@@ -63,14 +59,15 @@ fetch(githubUrl)
     })
     .then(response => {
         let repositories = response;
-        console.log(repositories);
         let projectSection = document.getElementById('Projects');
         //Create a variable named projectList; using "DOM Selection" query the projectSection (instead of the entire document)
         let projectList = projectSection.querySelector('ul');
         for (let i = 0; i < repositories.length; i++) {
             let project = document.createElement('li');
-            project.innerText = repositories[i].name + '\n'
-            + 'Created: ' + repositories[i].created_at + ' ' + 'Description: ' + repositories[i].description + ' Forks: ' + repositories[i].forks;
+            project.innerText = 'Project Name: ' + repositories[i].name + '\n' +
+                'Created: ' + repositories[i].created_at + '\n ' +
+                'Description : ' + repositories[i].description + '\n' +
+                'Forks: ' + repositories[i].forks;
             projectList.appendChild(project);
         }
     })
